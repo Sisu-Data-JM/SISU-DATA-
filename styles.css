@@ -1,106 +1,342 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>SISU Data | Services</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* ---------------------------------------------------------
+   SISU Data — Global Stylesheet
+   Palette: Deep Navy, Nordic Blue, Ice Gray, Charcoal, White
+--------------------------------------------------------- */
 
-<header>
-  <div class="logo-stack">
-    <span class="logo-sisu">SISU</span>
-    <span class="logo-data">DA<span class="cross">†</span>A</span>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
-    <a href="cases.html">Academy</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+:root {
+  --navy: #0A1A2F;
+  --blue: #2F6FA3;
+  --ice: #F5F7FA;
+  --charcoal: #333333;
+  --white: #FFFFFF;
 
-<main class="main">
+  --radius: 12px;
+  --shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
 
-  <section class="section">
-    <h2>Services</h2>
-    <p>
-      SISU Data focuses on disciplined, outcome‑driven data work. Each engagement is tailored,
-      but these are the core service areas.
-    </p>
-  </section>
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <!-- FIRST ROW: 3 CARDS -->
-  <section class="section grid-3">
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--ice);
+  color: var(--charcoal);
+  line-height: 1.6;
+}
 
-    <div class="card">
-      <h3>Business Consulting</h3>
-      <p>Strategic guidance to help organizations grow with clarity and confidence.</p>
-      <ul>
-        <li>Strategic planning</li>
-        <li>Operational performance review</li>
-        <li>Leadership advisory</li>
-        <li>Product growth strategy</li>
-      </ul>
-    </div>
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
 
-    <div class="card">
-      <h3>Data Engineering & Architecture</h3>
-      <p>We design and optimize SQL environments, build reliable pipelines, and modernize legacy systems.</p>
-      <ul>
-        <li>Faster query performance</li>
-        <li>Stable ETL pipelines</li>
-        <li>Reduced downtime</li>
-        <li>Scalable architecture</li>
-      </ul>
-    </div>
+/* ---------------------------------------------------------
+   Header + Logo
+--------------------------------------------------------- */
 
-    <div class="card">
-      <h3>Analytics Modernization</h3>
-      <p>We transform reporting into actionable intelligence with modern BI and KPI frameworks.</p>
-      <ul>
-        <li>Clear KPI alignment</li>
-        <li>Automated reporting</li>
-        <li>Executive‑ready dashboards</li>
-        <li>Better visibility into trends</li>
-      </ul>
-    </div>
+header {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  </section>
+nav a {
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--white);
+}
 
-  <!-- SECOND ROW: 2 CARDS -->
-  <section class="section grid-2">
+nav a:hover {
+  text-decoration: underline;
+}
 
-    <div class="card">
-      <h3>AI & Automation Readiness</h3>
-      <p>We prepare your data for AI by improving quality, structure, governance, and workflow automation.</p>
-      <ul>
-        <li>Clean, reliable datasets</li>
-        <li>Feature‑ready data</li>
-        <li>Automated workflows</li>
-        <li>Strong governance foundation</li>
-      </ul>
-    </div>
+/* Stacked Logo */
+.logo-stack {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
 
-    <div class="card">
-      <h3>Product Ownership & Delivery</h3>
-      <p>We lead cross‑functional teams to deliver data products that solve real business problems.</p>
-      <ul>
-        <li>Clear roadmaps</li>
-        <li>Prioritized backlogs</li>
-        <li>On‑time delivery</li>
-        <li>Measurable business impact</li>
-      </ul>
-    </div>
+.logo-sisu {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.08em;
+}
 
-  </section>
+.logo-data {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+}
 
-</main>
+.cross {
+  font-weight: 700;
+  color: var(--blue);
+}
 
-<footer>
-  <p>Built with clarity and resilience. SISU Data.</p>
-</footer>
+/* ---------------------------------------------------------
+   Main Layout
+--------------------------------------------------------- */
 
-</body>
-</html>
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.section {
+  margin-bottom: 2.8rem;
+}
+
+.section h2,
+.section h3,
+.section h4 {
+  margin-bottom: 1rem;
+  color: var(--navy);
+}
+
+.section p {
+  margin-bottom: 0.75rem;
+}
+
+/* ---------------------------------------------------------
+   Hero Section
+--------------------------------------------------------- */
+
+.hero {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 3rem 2rem;
+  border-radius: var(--radius);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--blue), var(--ice));
+  opacity: 0.15;
+  transform: rotate(12deg);
+}
+
+.hero-logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.hero-sisu {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.hero-data {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* ---------------------------------------------------------
+   Buttons
+--------------------------------------------------------- */
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--white);
+  color: var(--navy);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: var(--white);
+  color: var(--navy);
+}
+
+/* ---------------------------------------------------------
+   Cards + Grids
+--------------------------------------------------------- */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.card,
+.academy-card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+}
+
+.card h3,
+.academy-card h4 {
+  margin-bottom: 0.6rem;
+  color: var(--navy);
+}
+
+.card ul,
+.academy-card ul {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.card ul li,
+.academy-card ul li {
+  margin-bottom: 0.35rem;
+}
+
+/* ---------------------------------------------------------
+   Founder Section
+--------------------------------------------------------- */
+
+.founder-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.founder-photo img {
+  width: 240px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+  border: 3px solid var(--ice);
+}
+
+.founder-text {
+  flex: 1 1 600px;
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+.founder-text p {
+  margin-bottom: 1rem;
+}
+
+.linkedin-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+/* ---------------------------------------------------------
+   Contact Form
+--------------------------------------------------------- */
+
+form {
+  background-color: var(--white);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+form .field {
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccd3dd;
+  font-size: 0.95rem;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ---------------------------------------------------------
+   Footer
+--------------------------------------------------------- */
+
+footer {
+  background-color: var(--charcoal);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .hero {
+    padding: 2.2rem 1.5rem;
+  }
+
+  .founder-section {
+    flex-direction: column;
+  }
+
+  .audience-list {
+    columns: 1;
+  }
+}
