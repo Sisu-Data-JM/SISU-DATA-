@@ -60,7 +60,7 @@ nav a:hover {
 .logo-stack {
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 1; /* keeps SISU and DATA tight */
 }
 
 .logo-sisu {
@@ -77,9 +77,13 @@ nav a:hover {
   letter-spacing: 0.08em;
 }
 
+/* FIXED † alignment */
 .cross {
   font-weight: 700;
   color: var(--blue);
+  font-size: 1.15em;      /* slightly larger */
+  position: relative;
+  top: 0.08em;            /* nudges † downward so it aligns with both A's */
 }
 
 /* ---------------------------------------------------------
@@ -136,6 +140,7 @@ nav a:hover {
 .hero-logo {
   text-align: center;
   margin-bottom: 1.5rem;
+  line-height: 1; /* FIX: tighten SISU / DATA in hero */
 }
 
 .hero-sisu {
@@ -217,6 +222,12 @@ nav a:hover {
   box-shadow: var(--shadow);
 }
 
+/* FIX: tighten SISU / DATA inside cards */
+.card .logo-stack,
+.academy-card .logo-stack {
+  line-height: 1;
+}
+
 .card h3,
 .academy-card h4 {
   margin-bottom: 0.6rem;
@@ -232,6 +243,38 @@ nav a:hover {
 .card ul li,
 .academy-card ul li {
   margin-bottom: 0.35rem;
+}
+
+/* ---------------------------------------------------------
+   Services Page Enhancements
+--------------------------------------------------------- */
+
+.service-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.service-intro {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.service-section {
+  margin-bottom: 1.2rem;
+}
+
+.service-section h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: var(--blue);
+}
+
+.service-section ul {
+  margin-left: 1rem;
+  line-height: 1.4;
 }
 
 /* ---------------------------------------------------------
@@ -264,9 +307,29 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 
+.personal-note {
+  background-color: var(--white);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  line-height: 1.7;
+}
+
 .linkedin-btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 1.5rem;
+}
+
+.linkedin-btn img {
+  width: 28px;
+  height: 28px;
+}
+
+.linkedin-text {
+  font-weight: 500;
+  color: var(--blue);
 }
 
 /* ---------------------------------------------------------
@@ -309,12 +372,24 @@ form textarea {
    Footer
 --------------------------------------------------------- */
 
-footer {
+.site-footer {
   background-color: var(--charcoal);
   color: var(--white);
   padding: 1.5rem 2rem;
   font-size: 0.85rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-center {
   text-align: center;
+  flex: 1;
 }
 
 /* ---------------------------------------------------------
