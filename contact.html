@@ -4,7 +4,31 @@
   <meta charset="UTF-8">
   <title>SISU Data | Contact</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      emailjs.init("TNupq0IeY3Cskfc0A"); // <-- Replace with your EmailJS Public Key
+    });
+
+    function sendEmail(e) {
+      e.preventDefault();
+
+      emailjs.sendForm("service_5j5ucns", "template_7a0oiw2", "#contact-form")
+        .then(() => {
+          alert("Thank you! Your message has been sent.");
+          document.getElementById("contact-form").reset();
+        })
+        .catch((error) => {
+          console.error("EmailJS Error:", error);
+          alert("Oops! Something went wrong. Please try again.");
+        });
+    }
+  </script>
 </head>
+
 <body>
 
 <header>
@@ -29,7 +53,7 @@
   </section>
 
   <section class="section">
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="contact-form" onsubmit="sendEmail(event)">
 
       <div class="field">
         <label for="name">Full Name</label>
@@ -38,7 +62,7 @@
 
       <div class="field">
         <label for="email">Email Address</label>
-        <input id="email" type="email" name="_replyto" required>
+        <input id="email" type="email" name="email" required>
       </div>
 
       <div class="field">
@@ -65,11 +89,10 @@
 
 </main>
 
-  <footer class="site-footer">
+<footer class="site-footer">
   <div class="footer-left">© 2026 Sisu-Data.com - All rights reserved</div>
   <div class="footer-center">SISU Data. Ready when you are.</div>
 </footer>
-
 
 </body>
 </html>
